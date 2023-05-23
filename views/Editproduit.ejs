@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <%- include('partials/bootstrapCDN.ejs')%>
+        <title>NewProduit</title>
+</head>
+
+<body>
+    <h1 class="text-info text-center">Modifier Produit</h1>
+    <form class="w-50 m-auto" action= "/produit/edit/<%= data.id %>?_method=PUT" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="mb-3">
+            <label class="form-label">Nom de Produit </label>
+            <input type="text" name="nom" class="form-control" value=" <%= data.nom %>">
+        </div>
+        <select name="categories" class="form-select" aria-label="Default select example" >
+            <option value="ordinateur">Ordinateur</option>
+            <option value="mobile">Mobile</option>
+            <option value="tablette">Tablette</option>
+        </select>
+        <div class="mb-3">
+            <labe class="form-label"> Stock </label>
+                <input type="number" name="stock" class="form-control" value="<%= data.stock %>">
+        </div>
+        <div class="mb-3">
+            <labe class="form-label"> Prix </label>
+                <input type="text" name="prix" class="form-control" value=" <%= data.prix %>">
+        </div>
+
+        <button type="submit" class="btn btn-success">Modifier</button>
+
+    </form>
+
+</body>
+
+</html>

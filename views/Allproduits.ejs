@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <%- include('partials/bootstrapCDN.ejs')%>
+
+    <title>Allproduits</title>
+</head>
+
+<body>
+  <h1 class="text-center">Bienvenue sur la page produit</h1>
+  <div class="text-center"> <a class="btn btn-success" href="/Newproduit">Ajouter un produit</a></div>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nom Produit</th>
+        <th scope="col">Catégories</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Prix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach((produit)=>{ %>
+        <tr>
+          <td>
+            <%= produit.nom %>
+          </td>
+          <td>
+            <%= produit.categories %>
+          </td>
+          <td>
+            <%= produit.stock %>
+          </td>
+          <td>
+            <%= produit.prix %>
+          </td>
+          <td> <a class="btn btn-warning" href="/produit/<%= produit.id %>">Edit</a> </td>
+          <td>
+            <form action="/produit/delete/<%= produit.id%>?_method=DELETE" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input onclick="return confirm('Vous voulez supprimer le post ?')" type="submit" value="Supprimer">
+            </form>
+          </td>
+
+        </tr>
+
+
+        <% }) %>
+    </tbody>
+  </table>
+</body>
+
+</html>
