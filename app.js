@@ -107,7 +107,7 @@ app.post('/api/singup', function (req, res) {
         // res.redirect('/Allproduits');
     }).catch(err => console.log(err))
 });
-app.get('/inscription', function (req, res) {
+app.get('/Singup', function (req, res) {
     res.render('Singup');
 })
 //*****************Login******************** */
@@ -134,6 +134,6 @@ app.post('/api/login', function (req, res) {
 
 
 //server****************************************************************
-var server = app.listen(3000, function () {
-    console.log("Server listening on port 3000");
+var server = app.listen(5000, function () {
+    console.log("Server listening on port 5000");
 });
