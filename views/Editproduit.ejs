@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <%- include('partials/navbar.ejs')%>
     <h1 class="text-info text-center">Modifier Produit</h1>
     <form class="w-50 m-auto" action= "/produit/edit/<%= data.id %>?_method=PUT" method="post">
         <input type="hidden" name="_method" value="PUT">
